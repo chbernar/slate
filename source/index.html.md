@@ -110,7 +110,7 @@ time_stamp | The timestamp of the error
 Remember — a boba gang is only for boba lovers!
 </aside>
 
-## Post a new client
+## Post a new user characteristic
 
 ```javascript
 var screenHeight = window.screen.availHeight;
@@ -167,7 +167,7 @@ Remember — a boba gang is only for boba lovers!
 </aside>
 
 
-## Post user's performance to the database
+## Post a user's performance
 
 ```javascript
 window.onload = function() {
