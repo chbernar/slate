@@ -28,6 +28,16 @@ Username | Password
 --------- | -----------
 kevin | go
 
+
+To log in as admin, you can login through this username and password
+
+Username | Password
+--------- | -----------
+admin | admin
+
+Admin will be able to add, edit, delete, and set permissions (report views) for all users that are
+not admins.
+
 Or you can also create an account by filling in a form in [sign up](http://134.209.48.230/login)
 
 # Collector
@@ -259,3 +269,48 @@ url | The url of that the client entered in your website
 <aside class="success">
 Remember — a boba gang is only for boba lovers!
 </aside>
+
+# Error, Performance, Client report
+This endpoint displays the database error log, performance log, or client log.
+### HTTP Request
+`GET http://134.209.48.230/analytics?data=errors&page=anypage`
+### URL Parameters
+Parameter | Description
+--------- | -----------
+data | The report that wants to be displayed (either error, performance or client)
+page | The error, performance or client from which specific page
+
+
+# Set allowance
+This endpoint sets the permission to see the error log, performance log, or client log to the users.
+### HTTP Request
+`POST http://134.209.48.230/api/setAllowance`
+### URL Parameters
+Parameter | Description
+--------- | -----------
+username | The username that have been registered to our website
+allowances | The permission is comma separated which have to come exactly in this order error, performance, separated. Any number of permission can be specified.
+
+# Get allowance
+This endpoint gets the permission for a specific user.
+### HTTP Request
+`GET http://134.209.48.230/api/setAllowance:username`
+### URL Parameters
+Parameter | Description
+--------- | -----------
+name | The username's permissions that want to be displayed
+
+# Get current user allowances
+This endpoint gets the permission for the current user.
+### HTTP Request
+`GET http://134.209.48.230/api/getCurrUserAllowance`
+
+# Get profile
+To get the profile of the current user
+### HTTP Request
+`GET http://134.209.48.230/api/getProfile`
+
+# Check admin
+To check if the current user is an admin or not.
+### HTTP Request
+`GET http://134.209.48.230/api/isAdmin`
