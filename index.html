@@ -238,6 +238,63 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#error-performance-client-report" class="toc-h1 toc-link" data-title="Error, Performance, Client report">Error, Performance, Client report</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-4" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#url-parameters-3" class="toc-h2 toc-link" data-title="URL Parameters">URL Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#set-allowance" class="toc-h1 toc-link" data-title="Set allowance">Set allowance</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-5" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#url-parameters-4" class="toc-h2 toc-link" data-title="URL Parameters">URL Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#get-allowance" class="toc-h1 toc-link" data-title="Get allowance">Get allowance</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-6" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#url-parameters-5" class="toc-h2 toc-link" data-title="URL Parameters">URL Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#get-current-user-allowances" class="toc-h1 toc-link" data-title="Get current user allowances">Get current user allowances</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-7" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#get-profile" class="toc-h1 toc-link" data-title="Get profile">Get profile</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-8" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#check-admin" class="toc-h1 toc-link" data-title="Check admin">Check admin</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-9" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
@@ -266,6 +323,23 @@
 <td>go</td>
 </tr>
 </tbody></table>
+
+<p>To log in as admin, you can login through this username and password</p>
+
+<table><thead>
+<tr>
+<th>Username</th>
+<th>Password</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>admin</td>
+<td>admin</td>
+</tr>
+</tbody></table>
+
+<p>Admin will be able to add, edit, delete, and set permissions (report views) for all users that are
+not admins.</p>
 
 <p>Or you can also create an account by filling in a form in <a href="http://134.209.48.230/login">sign up</a></p>
 <h1 id='collector'>Collector</h1><h2 id='post-error'>Post error</h2><pre class="highlight javascript tab-javascript"><code><span class="nb">window</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">lineNo</span><span class="p">,</span> <span class="nx">columnNo</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
@@ -552,6 +626,74 @@ Remember — a boba gang is only for boba lovers!
 <aside class="success">
 Remember — a boba gang is only for boba lovers!
 </aside>
+<h1 id='error-performance-client-report'>Error, Performance, Client report</h1>
+<p>This endpoint displays the database error log, performance log, or client log.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET http://134.209.48.230/analytics?data=errors&amp;page=anypage</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>The report that wants to be displayed (either error, performance or client)</td>
+</tr>
+<tr>
+<td>page</td>
+<td>The error, performance or client from which specific page</td>
+</tr>
+</tbody></table>
+<h1 id='set-allowance'>Set allowance</h1>
+<p>This endpoint sets the permission to see the error log, performance log, or client log to the users.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST http://134.209.48.230/api/setAllowance</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>The username that have been registered to our website</td>
+</tr>
+<tr>
+<td>allowances</td>
+<td>The permission is comma separated which have to come exactly in this order error, performance, separated. Any number of permission can be specified.</td>
+</tr>
+</tbody></table>
+<h1 id='get-allowance'>Get allowance</h1>
+<p>This endpoint gets the permission for a specific user.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET http://134.209.48.230/api/setAllowance:username</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>The username&#39;s permissions that want to be displayed</td>
+</tr>
+</tbody></table>
+<h1 id='get-current-user-allowances'>Get current user allowances</h1>
+<p>This endpoint gets the permission for the current user.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET http://134.209.48.230/api/getCurrUserAllowance</code></p>
+<h1 id='get-profile'>Get profile</h1>
+<p>To get the profile of the current user</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET http://134.209.48.230/api/getProfile</code></p>
+<h1 id='check-admin'>Check admin</h1>
+<p>To check if the current user is an admin or not.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET http://134.209.48.230/api/isAdmin</code></p>
 
       </div>
       <div class="dark-box">
